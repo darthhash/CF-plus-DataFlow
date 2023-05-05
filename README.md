@@ -34,3 +34,18 @@ Actually we can just change creds in config.py file and run command:
 python backend_dataflow.py 
 python integration_dataflow.py 
 ```
+It can be scheduled with Google Cloud Scheduler
+
+## Dashboard
+
+It's here - https://lookerstudio.google.com/s/pyusREb15rQ
+
+Based on ratio_mart.sql request, which is scheduled in BQ 
+
+## The analytics case summing up
+Basically all insights we can get from the data on picture:
+<img width="1041" alt="Снимок экрана 2023-05-05 в 19 06 46" src="https://user-images.githubusercontent.com/62540074/236453522-9b7dba2d-74db-4764-a79e-8fecc2212fff.png">
+
+We can see that the result for a new onboarding type is worse in terms of Voice Ratio metric by almost 3%, but the result here is not statistically significant. Confidence interval is 65.9% – 69% for old type and 59.8% – 68.8% for new one, so anyway it is biassed to the negative side for new onboarding type.
+
+Also interesting information we can get from the dynamic of the metric breaked by onboarding types - we see that at the first days of April the new type Voice ratio is much better than the old type ratio, but after a few weeks it becomes worse than the old one. That can be the issue for further investigation. 
